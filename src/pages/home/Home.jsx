@@ -8,12 +8,13 @@ import ProductCard from "../../components/productCard/ProductCard";
 import Track from "../../components/track/Track";
 import Testimonial from "../../components/testimonial/Testimonial";
 import { Link } from "react-router-dom";
+import Category from "../../components/Category/Category";
+import { mockCategories } from "../categoriesPage/mockData";
 
 function Home() {
   return (
     <Layout>
       <HeroSection />
-      <Filter />
       <ProductCard />
       <div className="flex justify-center -mt-10 mb-4">
         <Link to={"/allproducts"}>
@@ -22,6 +23,7 @@ function Home() {
           </button>
         </Link>
       </div>
+      <Category categories={mockCategories} />
       <Track />
       <Testimonial />
     </Layout>

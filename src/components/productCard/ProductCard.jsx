@@ -21,6 +21,7 @@ function ProductCard() {
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
+
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-8 md:py-16 mx-auto">
@@ -34,7 +35,8 @@ function ProductCard() {
           <div className="h-1 w-20 bg-green-600 rounded"></div>
         </div>
 
-        <div className="flex flex-wrap -m-4">
+        {/* Grid setup for responsive layout */}
+        <div className="grid grid-cols-2 md:grid-cols-4">
           {product
             .filter((obj) => obj.title.toLowerCase().includes(searchkey))
             .filter((obj) => obj.category.toLowerCase().includes(filterType))
@@ -43,9 +45,9 @@ function ProductCard() {
             .map((item, index) => {
               const { title, price, imageUrl, id } = item;
               return (
-                <div key={index} className="p-4 md:w-1/4  drop-shadow-lg ">
+                <div key={index} className="p-4">
                   <div
-                    className="h-full border-2 hover:shadow-gray-100 hover:shadow-2xl transition-shadow duration-300 ease-in-out    border-gray-200 border-opacity-60 rounded-2xl overflow-hidden"
+                    className="border-2 hover:shadow-gray-100 hover:shadow-2xl transition-shadow duration-300 ease-in-out border-gray-200 border-opacity-60 rounded-2xl overflow-hidden"
                     style={{
                       backgroundColor: mode === "dark" ? "rgb(46 49 55)" : "",
                       color: mode === "dark" ? "white" : "",
@@ -55,12 +57,12 @@ function ProductCard() {
                       onClick={() =>
                         (window.location.href = `/productinfo/${id}`)
                       }
-                      className="flex justify-center cursor-pointer"
+                      className="flex justify-center cursor-pointer object-contain"
                     >
                       <img
-                        className=" rounded-2xl w-full h-80 p-2 hover:scale-110 transition-scale-110  duration-300 ease-in-out"
+                        className="rounded-2xl h-50 p-2 hover:scale-110 transition-transform duration-300 ease-in-out w-full lg:h-72"
                         src={imageUrl}
-                        alt="blog"
+                        alt={title}
                       />
                     </div>
                     <div className="p-5 border-t-2">
@@ -76,18 +78,17 @@ function ProductCard() {
                       >
                         {title}
                       </h1>
-                      {/* <p className="leading-relaxed mb-3">{item.description.}</p> */}
                       <p
                         className="leading-relaxed mb-3"
                         style={{ color: mode === "dark" ? "white" : "" }}
                       >
                         PKR {price}
                       </p>
-                      <div className=" flex justify-center">
+                      <div className="flex justify-center">
                         <button
                           type="button"
                           onClick={() => addCart(item)}
-                          className="focus:outline-none text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full  py-2"
+                          className="focus:outline-none text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full py-2"
                         >
                           Add To Cart
                         </button>

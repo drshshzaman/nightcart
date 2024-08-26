@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -21,6 +23,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Allproducts from "./pages/allproducts/Allproducts";
 import Thankyou from "./pages/thankyou/Thankyou";
+import CategoryPage from "./pages/categoriesPage/CategoriesPage";
 function App() {
   return (
     <MyState>
@@ -48,6 +51,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/productinfo/:id" element={<ProductInfo />} />
+          <Route path="/category/:categoryId" element={<CategoryPage />} />
           <Route path="/thankyou" element={<Thankyou />} />
           <Route
             path="/addproduct"
