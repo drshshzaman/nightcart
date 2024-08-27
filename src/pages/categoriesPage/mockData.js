@@ -1,27 +1,51 @@
 export const mockCategories = [
   {
     id: "1",
-    name: "Serums",
+    name: "Sunblock",
     imageUrl:
-      "https://images.unsplash.com/photo-1695048401431-f6d43722a987?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1709551264885-06719a695b4c?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: "2",
-    name: "Face Creams",
+    name: "Moisturiser",
     imageUrl:
-      "https://images.unsplash.com/photo-1671493228689-754b0f200c84?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://cdn.pixabay.com/photo/2023/10/04/12/23/cream-8293579_1280.jpg",
   },
   {
     id: "3",
-    name: "Treatments",
+    name: "Serum",
     imageUrl:
-      "https://images.unsplash.com/photo-1701056035575-8d345d9b52a4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: "4",
-    name: "Makeup",
+    name: "Toner",
     imageUrl:
-      "https://images.unsplash.com/photo-1704297004675-b2532b947c65?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1715702449456-9b6b1c51665c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "5",
+    name: "Facewash/cleanser",
+    imageUrl:
+      "https://images.unsplash.com/photo-1556228720-9b1e04f13f63?q=80&w=2061&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "6",
+    name: "Collagen/gluta",
+    imageUrl:
+      "https://images.unsplash.com/photo-1665757516805-ead01c014ceb?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "7",
+    name: "Hairoil",
+    imageUrl:
+      "https://media.istockphoto.com/id/2162969877/photo/sesame-oil-bottle-with-fresh-sesame-on-a-grey-surface.jpg?s=2048x2048&w=is&k=20&c=lhNG_QAVhA-l2cpLYgYkYTv3RZweqjDdwWZtX5RzDHA=",
+  },
+  {
+    id: "8",
+    name: "Essence",
+    imageUrl:
+      "https://images.unsplash.com/photo-1671492241057-e0ad01ceb1c8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
 
