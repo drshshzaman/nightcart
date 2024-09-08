@@ -9,7 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import "../herosection/style.css";
+import "../heroSection/style.css";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 export function Herosection() {
