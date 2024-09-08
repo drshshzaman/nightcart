@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useState } from "react";
 import myContext from "../../context/data/myContext";
 import Layout from "../../components/layout/Layout";
@@ -20,14 +19,14 @@ function Cart() {
 
   const deleteCart = (item) => {
     dispatch(deleteFromCart(item));
-    toast.success("Delete cart");
+    toast.success("Deleted from cart");
   };
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const [totalAmout, setTotalAmount] = useState(0);
+  const [totalAmount, setTotalAmount] = useState(0);
 
   useEffect(() => {
     let temp = 0;
@@ -38,13 +37,12 @@ function Cart() {
     console.log(temp);
   }, [cartItems]);
 
-  const shipping = parseInt(100);
+  const shipping = 100;
 
-  const grandTotal = shipping + totalAmout;
-  // console.log(grandTotal)
+  const grandTotal = shipping + totalAmount;
 
   /**========================================================================
-   *!                           Payment Intigration
+   *!                           Payment Integration
    *========================================================================**/
 
   const [name, setName] = useState("");
@@ -110,28 +108,30 @@ function Cart() {
   return (
     <Layout>
       <div
-        className="h-screen bg-gray-100 pt-5 "
+        className="h-screen bg-gray-100 pt-5"
         style={{
           backgroundColor: mode === "dark" ? "#282c34" : "",
           color: mode === "dark" ? "white" : "",
         }}
       >
         <h1 className="mb-10 text-center text-2xl font-bold">Cart Items</h1>
-        <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0 ">
-          <div className="rounded-lg md:w-2/3 ">
+        <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
+          <div className="rounded-lg md:w-2/3">
             {cartItems.map((item, index) => {
-              const { title, price, description, imageUrl } = item;
+              const { title, price, description, imageUrls } = item;
+              // Get the first image URL or use a placeholder
+              const firstImageUrl = imageUrls && imageUrls.length > 0 ? imageUrls[0] : "https://via.placeholder.com/300x300.png?text=No+Image";
               return (
                 <div
                   key={index}
-                  className="justify-between mb-6 rounded-lg border  drop-shadow-xl bg-white p-6  sm:flex  sm:justify-start"
+                  className="justify-between mb-6 rounded-lg border drop-shadow-xl bg-white p-6 sm:flex sm:justify-start"
                   style={{
                     backgroundColor: mode === "dark" ? "rgb(32 33 34)" : "",
                     color: mode === "dark" ? "white" : "",
                   }}
                 >
                   <img
-                    src={imageUrl}
+                    src={firstImageUrl}
                     alt="product-image"
                     className="w-full rounded-lg sm:w-40"
                   />
@@ -144,7 +144,7 @@ function Cart() {
                         {title}
                       </h2>
                       <h2
-                        className="text-sm  text-gray-900"
+                        className="text-sm text-gray-900"
                         style={{ color: mode === "dark" ? "white" : "" }}
                       >
                         {description}
@@ -199,7 +199,7 @@ function Cart() {
                 className="text-gray-700"
                 style={{ color: mode === "dark" ? "white" : "" }}
               >
-                PKR {totalAmout}
+                PKR {totalAmount}
               </p>
             </div>
             <div className="flex justify-between">
@@ -233,7 +233,6 @@ function Cart() {
                 </p>
               </div>
             </div>
-            {/* <Modal  /> */}
             <Modal
               name={name}
               address={address}
