@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useContext, useEffect } from "react";
 import myContext from "../../context/data/myContext";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,7 +14,7 @@ function ProductCard() {
 
   const addCart = (product) => {
     dispatch(addToCart(product));
-    toast.success("add to cart");
+    toast.success("Added to cart");
   };
 
   useEffect(() => {
@@ -43,7 +42,8 @@ function ProductCard() {
             .filter((obj) => obj.price.includes(filterPrice))
             .slice(0, 8)
             .map((item, index) => {
-              const { title, price, imageUrl, id } = item;
+              const { title, price, imageUrls, id } = item;
+              const firstImageUrl = imageUrls && imageUrls.length > 0 ? imageUrls[0] : "https://via.placeholder.com/300x300.png?text=No+Image";
               return (
                 <div key={index} className="p-4">
                   <div
@@ -61,7 +61,7 @@ function ProductCard() {
                     >
                       <img
                         className="rounded-2xl h-50 p-2 hover:scale-110 transition-transform duration-300 ease-in-out w-full lg:h-72"
-                        src={imageUrl}
+                        src={firstImageUrl}
                         alt={title}
                       />
                     </div>

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useState } from "react";
 import Layout from "../../components/layout/Layout";
 import myContext from "../../context/data/myContext";
@@ -13,7 +12,7 @@ function ProductInfo() {
   const context = useContext(myContext);
   const { loading, setLoading } = context;
 
-  const [products, setProducts] = useState("");
+  const [products, setProducts] = useState(null); // Initial state is null
   const [selectedImage, setSelectedImage] = useState("");
 
   const params = useParams();
@@ -24,47 +23,46 @@ function ProductInfo() {
       const productTemp = await getDoc(doc(fireDB, "products", params.id));
       const productData = productTemp.data();
 
-      // Add some fake small images for testing
-      const fakeSmallImages = [
-        "https://via.placeholder.com/100x100.png?text=Image+1",
-        "https://via.placeholder.com/100x100.png?text=Image+2",
-        "https://via.placeholder.com/100x100.png?text=Image+3",
-      ];
+      if (!productData) {
+        throw new Error("Product not found");
+      }
 
-      setProducts({
-        ...productData,
-        additionalImages: fakeSmallImages,
-      });
-
-      setSelectedImage(productData.imageUrl);
+      setProducts(productData);
+      setSelectedImage(productData.imageUrls && productData.imageUrls[0]); // Set initial image if available
       setLoading(false);
     } catch (error) {
       console.log(error);
       setLoading(false);
+      toast.error("Failed to load product data");
     }
   };
 
   useEffect(() => {
     getProductData();
-  }, []);
+  }, [params.id]);
 
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart);
 
-  const addCart = (products) => {
-    dispatch(addToCart(products));
-    toast.success("add to cart");
+  const addCart = (product) => {
+    dispatch(addToCart(product));
+    toast.success("Added to cart");
   };
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
 
+  // Remove the 'categoryId' from the description
+  const cleanDescription = products?.description
+    ? products.description.replace(/category\d+/i, "")
+    : "";
+
   return (
     <Layout>
       <section className="text-gray-600 body-font overflow-hidden">
         <div className="container px-5 py-10 mx-auto">
-          {products && (
+          {products ? (
             <div className="lg:w-4/5 mx-auto flex flex-wrap">
               <div className="lg:w-1/2 w-full">
                 <img
@@ -73,8 +71,8 @@ function ProductInfo() {
                   src={selectedImage}
                 />
                 <div className="flex justify-between mt-4">
-                  {products.additionalImages &&
-                    products.additionalImages.map((image, index) => (
+                  {products.imageUrls &&
+                    products.imageUrls.map((image, index) => (
                       <img
                         key={index}
                         alt={`small-image-${index}`}
@@ -96,7 +94,7 @@ function ProductInfo() {
                   {/* Existing stars and reviews section */}
                 </div>
                 <p className="leading-relaxed border-b-2 mb-5 pb-5">
-                  {products.description}
+                  {cleanDescription}
                 </p>
                 <div className="flex">
                   <span className="title-font font-medium text-2xl text-gray-900">
@@ -111,6 +109,8 @@ function ProductInfo() {
                 </div>
               </div>
             </div>
+          ) : (
+            <p className="text-center text-gray-500">Loading product data...</p>
           )}
         </div>
       </section>
