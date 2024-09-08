@@ -52,7 +52,12 @@ function Allproducts() {
               .filter((obj) => obj.category.toLowerCase().includes(filterType))
               .filter((obj) => obj.price.includes(filterPrice))
               .map((item, index) => {
-                const { title, price, imageUrl, id } = item;
+                const { title, price, imageUrls, id } = item;
+                // Get the first image URL
+                const firstImageUrl = (imageUrls && imageUrls.length > 0)
+                  ? imageUrls[0]
+                  : 'path/to/placeholder/image'; // Replace with actual placeholder path
+
                 return (
                   <div
                     key={index}
@@ -69,7 +74,7 @@ function Allproducts() {
                       <div className="flex justify-center cursor-pointer">
                         <img
                           className="rounded-2xl w-full h-80 p-2 hover:scale-110 transition-scale-110 duration-300 ease-in-out"
-                          src={imageUrl}
+                          src={firstImageUrl}
                           alt={title}
                         />
                       </div>
