@@ -27,25 +27,16 @@ export function Herosection() {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
+        className="mySwiper lg:w-[60%] h-[10%] object-contain mt-10"
       >
-        <SwiperSlide>
-          <img
-            src="https://img.freepik.com/free-psd/science-template-design_23-2150371006.jpg?w=900&t=st=1721317339~exp=1721317939~hmac=5dd0802534a18bbdf45f6714701d3d5c8aa12a1dd3ac9a73c89773dbbdfc2e02"
-            alt=""
-          />
+        <SwiperSlide className="">
+          <img className="object-contain" src="../1.png" alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img
-            src="https://img.freepik.com/free-psd/science-template-design_23-2150371006.jpg?w=900&t=st=1721317339~exp=1721317939~hmac=5dd0802534a18bbdf45f6714701d3d5c8aa12a1dd3ac9a73c89773dbbdfc2e02"
-            alt=""
-          />
+          <img className="object-contain" src="../2.png" alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img
-            src="https://img.freepik.com/free-psd/science-template-design_23-2150371006.jpg?w=900&t=st=1721317339~exp=1721317939~hmac=5dd0802534a18bbdf45f6714701d3d5c8aa12a1dd3ac9a73c89773dbbdfc2e02"
-            alt=""
-          />
+          <img className="object-contain" src="../3.png" alt="" />
         </SwiperSlide>
       </Swiper>
     </>

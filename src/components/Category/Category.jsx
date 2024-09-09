@@ -14,7 +14,7 @@ const Category = ({ categories }) => {
             </h1>
             <div className="h-1 w-20 bg-green-600 rounded"></div>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 items-center justify-center gap-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 items-center justify-center gap-5">
             {categories.map((category) => (
               <Link
                 className="category-box"

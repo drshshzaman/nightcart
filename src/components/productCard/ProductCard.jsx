@@ -1,16 +1,19 @@
-import React, { useContext, useEffect } from "react";
+/* eslint-disable no-unused-vars */
+import React, { useContext, useEffect, useState } from "react";
 import myContext from "../../context/data/myContext";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../redux/cartSlice";
 import { toast } from "react-toastify";
+import Loader from "../loader/Loader";
 
 function ProductCard() {
   const context = useContext(myContext);
   const { mode, product, searchkey, filterType, filterPrice } = context;
 
+  const [loading, setLoading] = useState(true); // Loading state added
+
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart);
-  console.log(cartItems);
 
   const addCart = (product) => {
     dispatch(addToCart(product));
@@ -18,6 +21,16 @@ function ProductCard() {
   };
 
   useEffect(() => {
+    setLoading(true);
+    // Simulating the data fetch (replace with your actual Firebase fetch logic)
+    const fetchData = async () => {
+      // Simulate 2-3 seconds delay for product fetching
+      setTimeout(() => {
+        setLoading(false); // Set loading to false after data is fetched
+      }, 2000); // Adjust the timeout duration if necessary
+    };
+
+    fetchData();
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
 
@@ -34,71 +47,80 @@ function ProductCard() {
           <div className="h-1 w-20 bg-green-600 rounded"></div>
         </div>
 
-        {/* Grid setup for responsive layout */}
-        <div className="grid grid-cols-2 md:grid-cols-4">
-          {product
-            .filter((obj) => obj.title.toLowerCase().includes(searchkey))
-            .filter((obj) => obj.category.toLowerCase().includes(filterType))
-            .filter((obj) => obj.price.includes(filterPrice))
-            .slice(0, 8)
-            .map((item, index) => {
-              const { title, price, imageUrls, id } = item;
-              const firstImageUrl = imageUrls && imageUrls.length > 0 ? imageUrls[0] : "https://via.placeholder.com/300x300.png?text=No+Image";
-              return (
-                <div key={index} className="p-4">
-                  <div
-                    className="border-2 hover:shadow-gray-100 hover:shadow-2xl transition-shadow duration-300 ease-in-out border-gray-200 border-opacity-60 rounded-2xl overflow-hidden"
-                    style={{
-                      backgroundColor: mode === "dark" ? "rgb(46 49 55)" : "",
-                      color: mode === "dark" ? "white" : "",
-                    }}
-                  >
+        {loading ? (
+          <div className="flex justify-center items-center h-64">
+            {/* Loader */}
+            <Loader />
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-4">
+            {product
+              .filter((obj) => obj.title.toLowerCase().includes(searchkey))
+              .filter((obj) => obj.category.toLowerCase().includes(filterType))
+              .filter((obj) => obj.price.includes(filterPrice))
+              .slice(0, 8)
+              .map((item, index) => {
+                const { title, price, imageUrls, id } = item;
+                const firstImageUrl =
+                  imageUrls && imageUrls.length > 0
+                    ? imageUrls[0]
+                    : "https://via.placeholder.com/300x300.png?text=No+Image";
+                return (
+                  <div key={index} className="p-4">
                     <div
-                      onClick={() =>
-                        (window.location.href = `/productinfo/${id}`)
-                      }
-                      className="flex justify-center cursor-pointer object-contain"
+                      className="border-2 hover:shadow-gray-100 hover:shadow-2xl transition-shadow duration-300 ease-in-out border-gray-200 border-opacity-60 rounded-2xl overflow-hidden"
+                      style={{
+                        backgroundColor: mode === "dark" ? "rgb(46 49 55)" : "",
+                        color: mode === "dark" ? "white" : "",
+                      }}
                     >
-                      <img
-                        className="rounded-2xl h-50 p-2 hover:scale-110 transition-transform duration-300 ease-in-out w-full lg:h-72"
-                        src={firstImageUrl}
-                        alt={title}
-                      />
-                    </div>
-                    <div className="p-5 border-t-2">
-                      <h2
-                        className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"
-                        style={{ color: mode === "dark" ? "white" : "" }}
+                      <div
+                        onClick={() =>
+                          (window.location.href = `/productinfo/${id}`)
+                        }
+                        className="flex justify-center cursor-pointer object-contain"
                       >
-                        SkinSugar
-                      </h2>
-                      <h1
-                        className="title-font text-lg font-medium text-gray-900 mb-3"
-                        style={{ color: mode === "dark" ? "white" : "" }}
-                      >
-                        {title}
-                      </h1>
-                      <p
-                        className="leading-relaxed mb-3"
-                        style={{ color: mode === "dark" ? "white" : "" }}
-                      >
-                        PKR {price}
-                      </p>
-                      <div className="flex justify-center">
-                        <button
-                          type="button"
-                          onClick={() => addCart(item)}
-                          className="focus:outline-none text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full py-2"
+                        <img
+                          className="rounded-2xl h-50 p-2 hover:scale-110 transition-transform duration-300 ease-in-out w-full lg:h-72"
+                          src={firstImageUrl}
+                          alt={title}
+                        />
+                      </div>
+                      <div className="p-5 border-t-2">
+                        <h2
+                          className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"
+                          style={{ color: mode === "dark" ? "white" : "" }}
                         >
-                          Add To Cart
-                        </button>
+                          SkinSugar
+                        </h2>
+                        <h1
+                          className="title-font text-lg font-medium text-gray-900 mb-3"
+                          style={{ color: mode === "dark" ? "white" : "" }}
+                        >
+                          {title}
+                        </h1>
+                        <p
+                          className="leading-relaxed mb-3"
+                          style={{ color: mode === "dark" ? "white" : "" }}
+                        >
+                          PKR {price}
+                        </p>
+                        <div className="flex justify-center">
+                          <button
+                            type="button"
+                            onClick={() => addCart(item)}
+                            className="focus:outline-none text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full py-2"
+                          >
+                            Add To Cart
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-        </div>
+                );
+              })}
+          </div>
+        )}
       </div>
     </section>
   );

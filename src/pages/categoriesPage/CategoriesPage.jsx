@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext, useEffect } from "react";
 import myContext from "../../context/data/myContext";
 import { useDispatch, useSelector } from "react-redux";
@@ -59,9 +60,10 @@ function CategoriesPage() {
             {filteredProducts.map((item, index) => {
               const { title, price, imageUrls, id } = item;
               // Get the first image URL
-              const firstImageUrl = (imageUrls && imageUrls.length > 0)
-                ? imageUrls[0]
-                : 'path/to/placeholder/image'; // Replace with actual placeholder path
+              const firstImageUrl =
+                imageUrls && imageUrls.length > 0
+                  ? imageUrls[0]
+                  : "path/to/placeholder/image"; // Replace with actual placeholder path
 
               return (
                 <div key={index} className="p-4 md:w-1/4 drop-shadow-lg">

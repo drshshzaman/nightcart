@@ -1,6 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
 import myContext from "../../context/data/myContext";
+import { IoShieldCheckmark } from "react-icons/io5";
+import { FaTruckFast } from "react-icons/fa6";
+import { FaDollarSign } from "react-icons/fa";
 
 function Track() {
   const context = useContext(myContext);
@@ -18,29 +21,16 @@ function Track() {
                   color: mode === "dark" ? "white" : "",
                 }}
               >
-                <svg
-                  className="text-green-600 w-12 h-12 mb-3 inline-block"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-                  />
-                </svg>
+                <IoShieldCheckmark className="text-green-600 w-12 h-12 mb-3 inline-block" />
 
                 <h2
                   className="title-font font-medium text-lg text-gray-900"
                   style={{ color: mode === "dark" ? "white" : "" }}
                 >
-                  Premium Tshirts
+                  Quality Products
                 </h2>
                 <p className="leading-relaxed">
-                  Our T-Shirts are 100% made of cotton.
+                  We deliver top-tier skincare products you can trust.
                 </p>
               </div>
             </div>
@@ -52,29 +42,17 @@ function Track() {
                   color: mode === "dark" ? "white" : "",
                 }}
               >
-                <svg
-                  className="text-green-600 w-12 h-12 mb-3 inline-block"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-                  />
-                </svg>
+                <FaTruckFast className="text-green-600 w-12 h-12 mb-3 inline-block" />
 
                 <h2
                   className="title-font font-medium text-lg text-gray-900"
                   style={{ color: mode === "dark" ? "white" : "" }}
                 >
-                  Premium Tshirts
+                  Fast & Reliable Delivery
                 </h2>
                 <p className="leading-relaxed">
-                  Our T-Shirts are 100% made of cotton.
+                  Get your favorite skincare essentials delivered quickly to
+                  your doorstep.
                 </p>
               </div>
             </div>
@@ -87,29 +65,16 @@ function Track() {
                   color: mode === "dark" ? "white" : "",
                 }}
               >
-                <svg
-                  className="text-green-600 w-12 h-12 mb-3 inline-block"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-                  />
-                </svg>
+                <FaDollarSign className="text-green-600 w-12 h-12 mb-3 inline-block" />
 
                 <h2
                   className="title-font font-medium text-lg text-gray-900"
                   style={{ color: mode === "dark" ? "white" : "" }}
                 >
-                  Premium Tshirts
+                  Affordable Prices
                 </h2>
                 <p className="leading-relaxed">
-                  Our T-Shirts are 100% made of cotton.
+                  Luxury skincare that doesn’t break the bank.
                 </p>
               </div>
             </div>

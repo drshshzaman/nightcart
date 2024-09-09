@@ -8,12 +8,15 @@ import { Link } from "react-router-dom";
 import { Dialog, Transition } from "@headlessui/react";
 import { RxCross2 } from "react-icons/rx";
 import { useSelector } from "react-redux";
+import { mockCategories } from "../../pages/categoriesPage/mockData";
+import Category from "../Category/Category";
 
 function Navbar() {
   const context = useContext(myContext);
   const { mode, toggleMode } = context;
 
   const [open, setOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false); // For mobile dropdown
 
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -69,6 +72,7 @@ function Navbar() {
                     <RxCross2 />
                   </button>
                 </div>
+
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                   <Link
                     to={"/allproducts"}
@@ -77,6 +81,32 @@ function Navbar() {
                   >
                     All Products
                   </Link>
+
+                  {/* Mobile categories dropdown button */}
+                  <div className="ml-auto flex items-center">
+                    <button
+                      className="lg:hidden text-sm font-medium text-gray-700"
+                      onClick={() => setDropdownOpen(!dropdownOpen)}
+                      style={{ color: mode === "dark" ? "white" : "" }}
+                    >
+                      Categories
+                    </button>
+                    {dropdownOpen && (
+                      <div className="absolute left-10 top-[25rem] bg-white shadow-md rounded-md lg:hidden">
+                        {mockCategories.map((category) => (
+                          <Link
+                            className="category-box"
+                            key={category.id}
+                            to={`/category/${category.id}`}
+                          >
+                            <h2 className="text-black p-4 text-lg font-semibold">
+                              {category.name}
+                            </h2>
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
 
                   {user ? (
                     <div className="flow-root">
@@ -128,23 +158,6 @@ function Navbar() {
                     </div>
                   )}
                 </div>
-
-                <div className="border-t border-gray-200 px-4 py-6">
-                  <a href="#" className="-m-2 flex items-center p-2">
-                    <img
-                      src="img/indiaflag.png"
-                      alt=""
-                      className="block h-auto w-5 flex-shrink-0"
-                    />
-                    <span
-                      className="ml-3 block text-base font-medium text-gray-900"
-                      style={{ color: mode === "dark" ? "white" : "" }}
-                    >
-                      Pakistan
-                    </span>
-                    <span className="sr-only">, change currency</span>
-                  </a>
-                </div>
               </Dialog.Panel>
             </Transition.Child>
           </div>
@@ -152,16 +165,6 @@ function Navbar() {
       </Transition.Root>
 
       <header className="relative bg-white">
-        <p
-          className="flex h-10 items-center justify-center bg-green-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8"
-          style={{
-            backgroundColor: mode === "dark" ? "rgb(62 64 66)" : "",
-            color: mode === "dark" ? "white" : "",
-          }}
-        >
-          Get free delivery on orders over PKR 5000
-        </p>
-
         <nav
           aria-label="Top"
           className="bg-gray-100 px-4 sm:px-6 lg:px-8 shadow-xl "

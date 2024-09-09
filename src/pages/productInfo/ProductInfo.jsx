@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useState } from "react";
 import Layout from "../../components/layout/Layout";
 import myContext from "../../context/data/myContext";
@@ -7,10 +8,13 @@ import { doc, getDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { addToCart } from "../../redux/cartSlice";
 import { fireDB } from "../../fireabase/FirebaseConfig";
+import Loader from "../../components/loader/Loader";
 
 function ProductInfo() {
   const context = useContext(myContext);
   const { loading, setLoading } = context;
+
+  const { mode } = context;
 
   const [products, setProducts] = useState(null); // Initial state is null
   const [selectedImage, setSelectedImage] = useState("");
@@ -87,17 +91,26 @@ function ProductInfo() {
                 <h2 className="text-sm title-font text-gray-500 tracking-widest">
                   SkinSugar
                 </h2>
-                <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
+                <h1
+                  className="text-gray-900 text-3xl title-font font-medium mb-1"
+                  style={{ color: mode === "dark" ? "white" : "" }}
+                >
                   {products.title}
                 </h1>
                 <div className="flex mb-4">
                   {/* Existing stars and reviews section */}
                 </div>
-                <p className="leading-relaxed border-b-2 mb-5 pb-5">
+                <p
+                  className="leading-relaxed border-b-2 mb-5 pb-5"
+                  style={{ color: mode === "dark" ? "white" : "" }}
+                >
                   {cleanDescription}
                 </p>
                 <div className="flex">
-                  <span className="title-font font-medium text-2xl text-gray-900">
+                  <span
+                    className="title-font font-medium text-2xl text-gray-900"
+                    style={{ color: mode === "dark" ? "white" : "" }}
+                  >
                     PKR {products.price}
                   </span>
                   <button
@@ -110,7 +123,9 @@ function ProductInfo() {
               </div>
             </div>
           ) : (
-            <p className="text-center text-gray-500">Loading product data...</p>
+            <div className="text-center flex items-center justify-center text-gray-500">
+              <Loader />
+            </div>
           )}
         </div>
       </section>
