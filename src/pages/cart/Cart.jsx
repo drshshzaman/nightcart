@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useState } from "react";
 import myContext from "../../context/data/myContext";
 import Layout from "../../components/layout/Layout";
@@ -37,7 +38,7 @@ function Cart() {
     console.log(temp);
   }, [cartItems]);
 
-  const shipping = 100;
+  const shipping = 300;
 
   const grandTotal = shipping + totalAmount;
 
@@ -47,12 +48,17 @@ function Cart() {
 
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
-  const [pincode, setPincode] = useState("");
+  const [postalCode, setPostalCode] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
 
   const buyNow = async () => {
     // Validate the form inputs
-    if (name === "" || address === "" || pincode === "" || phoneNumber === "") {
+    if (
+      name === "" ||
+      address === "" ||
+      postalCode === "" ||
+      phoneNumber === ""
+    ) {
       return toast.error("All fields are required", {
         position: "top-center",
         autoClose: 1000,
@@ -68,7 +74,7 @@ function Cart() {
     const addressInfo = {
       name,
       address,
-      pincode,
+      postalCode,
       phoneNumber,
       date: new Date().toLocaleString("en-US", {
         month: "short",
@@ -108,7 +114,7 @@ function Cart() {
   return (
     <Layout>
       <div
-        className="h-screen bg-gray-100 pt-5"
+        className="bg-gray-100 pt-5"
         style={{
           backgroundColor: mode === "dark" ? "#282c34" : "",
           color: mode === "dark" ? "white" : "",
@@ -116,11 +122,14 @@ function Cart() {
       >
         <h1 className="mb-10 text-center text-2xl font-bold">Cart Items</h1>
         <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
-          <div className="rounded-lg md:w-2/3">
+          <div className="rounded-lg md:w-2/3 grid grid-cols-2 gap-2 md:flex md:items-center md:justify-center md:flex-col">
             {cartItems.map((item, index) => {
               const { title, price, description, imageUrls } = item;
               // Get the first image URL or use a placeholder
-              const firstImageUrl = imageUrls && imageUrls.length > 0 ? imageUrls[0] : "https://via.placeholder.com/300x300.png?text=No+Image";
+              const firstImageUrl =
+                imageUrls && imageUrls.length > 0
+                  ? imageUrls[0]
+                  : "https://via.placeholder.com/300x300.png?text=No+Image";
               return (
                 <div
                   key={index}
@@ -138,19 +147,19 @@ function Cart() {
                   <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                     <div className="mt-5 sm:mt-0">
                       <h2
-                        className="text-lg font-bold text-gray-900"
+                        className="text-lg font-bold text-gray-900 line-clamp-1"
                         style={{ color: mode === "dark" ? "white" : "" }}
                       >
                         {title}
                       </h2>
                       <h2
-                        className="text-sm text-gray-900"
+                        className="text-sm text-gray-900 line-clamp-2"
                         style={{ color: mode === "dark" ? "white" : "" }}
                       >
                         {description}
                       </h2>
                       <p
-                        className="mt-1 text-xs font-semibold text-gray-700"
+                        className="mt-1 text-md font-semibold text-gray-700"
                         style={{ color: mode === "dark" ? "white" : "" }}
                       >
                         PKR {price}
@@ -158,7 +167,7 @@ function Cart() {
                     </div>
                     <div
                       onClick={() => deleteCart(item)}
-                      className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6"
+                      className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6 cursor-pointer"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -236,11 +245,11 @@ function Cart() {
             <Modal
               name={name}
               address={address}
-              pincode={pincode}
+              pincode={postalCode}
               phoneNumber={phoneNumber}
               setName={setName}
               setAddress={setAddress}
-              setPincode={setPincode}
+              setPincode={setPostalCode}
               setPhoneNumber={setPhoneNumber}
               buyNow={buyNow}
             />
