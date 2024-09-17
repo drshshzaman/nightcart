@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 const Thankyou = () => {
   return (
     <Layout>
-      <div className="container h-[81vh] flex items-center justify-center relative">
-        <div className="container-wrapper">
-          <div className="text-center absolute top-52 left-[38rem]">
+      <div className="h-[81vh] flex items-center justify-center">
+        <div className="">
+          <div className="text-center flex items-center justify-center flex-col">
             <h1 className="text-2xl xl:text-5xl font-bold mb-10">
               Thank you for your order 🎊
             </h1>
