@@ -342,7 +342,7 @@ function DashboardTab() {
                                   color: mode === "dark" ? "white" : "",
                                 }}
                               >
-                                ₹{price}
+                                rs {price}
                               </td>
                               <td
                                 className="px-6 py-4 text-black "

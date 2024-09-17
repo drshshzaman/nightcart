@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate
 export default function Modal({
   name,
   address,
-  postalcode,
+  pincode,
   phoneNumber,
   setName,
   setAddress,
@@ -27,10 +27,10 @@ export default function Modal({
 
   const handleOrderNow = () => {
     // Form validation: Ensure all fields are filled
-    if (name && address && postalcode && phoneNumber) {
+    if (name && address && pincode && phoneNumber) {
       buyNow(); // Execute the buyNow function
-      closeModal(); // Close the modal
-      navigate("/thankyou"); // Redirect to the "Thank You" page
+      closeModal();
+      navigate("/thankyou");
     } else {
       alert("Please fill in all the fields before proceeding."); // Alert user if fields are missing
     }
@@ -121,7 +121,7 @@ export default function Modal({
                                 Enter Postal Code
                               </label>
                               <input
-                                value={postalcode}
+                                value={pincode}
                                 onChange={(e) => setPincode(e.target.value)}
                                 type="text"
                                 name="pincode"

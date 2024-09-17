@@ -48,17 +48,12 @@ function Cart() {
 
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
-  const [postalCode, setPostalCode] = useState("");
+  const [pincode, setPincode] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
 
   const buyNow = async () => {
     // Validate the form inputs
-    if (
-      name === "" ||
-      address === "" ||
-      postalCode === "" ||
-      phoneNumber === ""
-    ) {
+    if (name === "" || address === "" || pincode === "" || phoneNumber === "") {
       return toast.error("All fields are required", {
         position: "top-center",
         autoClose: 1000,
@@ -74,7 +69,7 @@ function Cart() {
     const addressInfo = {
       name,
       address,
-      postalCode,
+      pincode,
       phoneNumber,
       date: new Date().toLocaleString("en-US", {
         month: "short",
@@ -101,10 +96,10 @@ function Cart() {
       await addDoc(orderRef, orderInfo);
       toast.success("Order placed successfully");
 
-      // Show confirmation message
-
-      // Optionally, redirect to another page
-      // window.location.href = '/thank-you'; // Example redirect to a thank you page
+      // Clear the cart after placing the order
+      cartItems.forEach((item) => {
+        dispatch(deleteFromCart(item));
+      });
     } catch (error) {
       console.error("Error placing order: ", error);
       toast.error("Failed to place order");
@@ -245,11 +240,11 @@ function Cart() {
             <Modal
               name={name}
               address={address}
-              pincode={postalCode}
+              pincode={pincode}
               phoneNumber={phoneNumber}
               setName={setName}
               setAddress={setAddress}
-              setPincode={setPostalCode}
+              setPincode={setPincode}
               setPhoneNumber={setPhoneNumber}
               buyNow={buyNow}
             />
