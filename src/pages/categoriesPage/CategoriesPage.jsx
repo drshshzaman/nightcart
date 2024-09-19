@@ -38,8 +38,8 @@ function CategoriesPage() {
     .filter((obj) => obj.description.includes(`category${categoryId}`))
     .filter((obj) => obj.title.toLowerCase().includes(searchkey))
     .filter((obj) => obj.category.toLowerCase().includes(filterType))
-    .filter((obj) => obj.price.includes(filterPrice))
-    .slice(0, 8);
+    .filter((obj) => obj.price.includes(filterPrice));
+  // .slice(0, 8);
 
   return (
     <Layout>
