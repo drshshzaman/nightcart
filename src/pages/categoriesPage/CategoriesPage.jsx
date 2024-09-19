@@ -44,7 +44,7 @@ function CategoriesPage() {
   return (
     <Layout>
       <section className="text-gray-600 body-font">
-        <Filter />
+        {/* <Filter /> */}
         <div className="container px-5 py-8 md:py-16 mx-auto">
           <div className="lg:w-1/2 w-full mb-6 lg:mb-10">
             <h1
