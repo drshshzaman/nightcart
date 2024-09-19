@@ -47,6 +47,12 @@ export const mockCategories = [
     imageUrl:
       "https://images.unsplash.com/photo-1671492241057-e0ad01ceb1c8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
+  {
+    id: "9",
+    name: "Shampoo/condit..",
+    imageUrl:
+      "https://images.unsplash.com/photo-1646109324106-2427a6341f55?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
 ];
 
 export const mockProducts = {
