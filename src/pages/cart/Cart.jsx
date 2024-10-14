@@ -86,8 +86,6 @@ function Cart() {
         day: "2-digit",
         year: "numeric",
       }),
-      email: JSON.parse(localStorage.getItem("user")).user.email,
-      userid: JSON.parse(localStorage.getItem("user")).user.uid,
     };
 
     try {
