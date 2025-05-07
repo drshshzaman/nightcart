@@ -1,57 +1,57 @@
 export const mockCategories = [
   {
     id: "1",
-    name: "Sunblock",
+    name: "Groceries",
     imageUrl:
-      "https://images.unsplash.com/photo-1709551264885-06719a695b4c?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.pexels.com/photos/31911414/pexels-photo-31911414/free-photo-of-colorful-fresh-fruit-display-in-grocery-store.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
   {
     id: "2",
-    name: "Moisturiser",
+    name: "Snacks",
     imageUrl:
-      "https://cdn.pixabay.com/photo/2023/10/04/12/23/cream-8293579_1280.jpg",
+      "https://images.pexels.com/photos/298217/pexels-photo-298217.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
     id: "3",
-    name: "Serum",
+    name: "Crockery",
     imageUrl:
-      "https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1617784625140-515e220ba148?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3JvY2tlcnl8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: "4",
-    name: "Toner",
+    name: "Electronics",
     imageUrl:
-      "https://images.unsplash.com/photo-1715702449456-9b6b1c51665c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1588508065123-287b28e013da?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGVsZWN0cm9uaWNzfGVufDB8fDB8fHww",
   },
   {
     id: "5",
-    name: "Facewash/cleanser",
+    name: "Skin care",
     imageUrl:
-      "https://images.unsplash.com/photo-1556228720-9b1e04f13f63?q=80&w=2061&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://plus.unsplash.com/premium_photo-1674739375749-7efe56fc8bbb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8U2tpbiUyMGNhcmV8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: "6",
-    name: "Collagen/gluta",
+    name: "Furniture",
     imageUrl:
-      "https://images.unsplash.com/photo-1665757516805-ead01c014ceb?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://media.istockphoto.com/id/2124498792/photo/furniture-store-with-many-sofas-armchairs-and-other-furniture-in-different-colors-and.webp?a=1&b=1&s=612x612&w=0&k=20&c=oRMTpgsaNo_a4rPcA028m_nk8VF1zWwxzQ7hlbaWGvA=",
   },
   {
     id: "7",
-    name: "Hairoil",
+    name: "Fashion",
     imageUrl:
-      "https://media.istockphoto.com/id/2162969877/photo/sesame-oil-bottle-with-fresh-sesame-on-a-grey-surface.jpg?s=2048x2048&w=is&k=20&c=lhNG_QAVhA-l2cpLYgYkYTv3RZweqjDdwWZtX5RzDHA=",
+      "https://images.unsplash.com/photo-1559563458-527698bf5295?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZmFzaGlvbiUyMGJhZ3N8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: "8",
-    name: "Essence",
+    name: "Stationary",
     imageUrl:
-      "https://images.unsplash.com/photo-1671492241057-e0ad01ceb1c8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://plus.unsplash.com/premium_photo-1663956148012-52c4b284dbca?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c3RhdGlvbmFyeSUyMGl0ZW1zfGVufDB8fDB8fHww",
   },
   {
     id: "9",
-    name: "Shampoo/condit..",
+    name: "Sports",
     imageUrl:
-      "https://images.unsplash.com/photo-1646109324106-2427a6341f55?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://media.istockphoto.com/id/1136317339/photo/sports-equipment-on-floor.webp?a=1&b=1&s=612x612&w=0&k=20&c=BhAjCE2T2cDWu5V4QMSGFTopVSsV0S-IhnyLv1bfyks=",
   },
 ];
 

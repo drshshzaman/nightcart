@@ -209,7 +209,7 @@ function Navbar() {
                       className=" text-2xl font-bold text-black  px-2 py-1 rounded"
                       style={{ color: mode === "dark" ? "white" : "" }}
                     >
-                      Skin Sugar
+                      Night Cart
                     </h1>
                   </div>
                 </Link>

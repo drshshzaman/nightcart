@@ -6,13 +6,14 @@ import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA67pl5x3lXSN1dpqg0qsa4VSzOXHgjqUU",
-  authDomain: "skin-sugar.firebaseapp.com",
-  projectId: "skin-sugar",
-  storageBucket: "skin-sugar.appspot.com",
-  messagingSenderId: "443087382013",
-  appId: "1:443087382013:web:058c389301c787185fa594",
-  measurementId: "G-X60P161RP3"
+  apiKey: "AIzaSyArP--v6nWJs3D_4zshWA-tIErCs_UVMdA",
+  authDomain: "impactshopping-3f088.firebaseapp.com",
+  databaseURL: "https://impactshopping-3f088-default-rtdb.firebaseio.com",
+  projectId: "impactshopping-3f088",
+  storageBucket: "salancer-444c7.appspot.com",
+  messagingSenderId: "998340797570",
+  appId: "1:998340797570:web:fa184ad26724c85862809b",
+  measurementId: "G-RCZYRJCSJ6"
 };
 
 // Initialize Firebase
